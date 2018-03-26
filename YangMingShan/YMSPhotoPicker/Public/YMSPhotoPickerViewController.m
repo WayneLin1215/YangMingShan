@@ -104,15 +104,15 @@ static const CGFloat YMSPhotoFetchScaleResizingRatio = 0.75;
     [self updateViewWithCollectionItem:[self.collectionItems firstObject]];
 
     self.cellPortraitSize = self.cellLandscapeSize = CGSizeZero;
+    if (self.useCamera) {
+        [self yms_presentCameraCaptureViewWithDelegate:self];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
-    if (self.useCamera) {
-        [self yms_presentCameraCaptureViewWithDelegate:self];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
