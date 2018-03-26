@@ -31,6 +31,9 @@
  */
 @property (nonatomic, assign) NSUInteger numberOfPhotoToSelect;
 
+@property (nonatomic, assign) BOOL useCamera;
+
+
 /**
  * @brief Use YMSPhotoPickerTheme to customize the UI appearance for YMSPhotoPickerViewController, YMSSinglePhotoViewController, and YMSAlbumPickerViewController. See YMSPhotoPickerTheme.h for more details.
  *
