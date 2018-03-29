@@ -88,7 +88,7 @@ static const CGFloat YMSPhotoFetchScaleResizingRatio = 0.75;
     if (self.allowsMultipleSelection) {
         // Add done button for multiple selections
         self.doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishPickingPhotos:)];
-        self.doneItem.enabled = NO;
+        //self.doneItem.enabled = NO;
         navigationItem.rightBarButtonItem = self.doneItem;
     }
 
@@ -271,7 +271,7 @@ static const CGFloat YMSPhotoFetchScaleResizingRatio = 0.75;
         PHFetchResult *fetchResult = self.currentCollectionItem[@"assets"];
         PHAsset *asset = fetchResult[indexPath.item-1];
         [self.selectedPhotos addObject:asset];
-        self.doneItem.enabled = YES;
+        //self.doneItem.enabled = YES;
     }
 }
 
@@ -311,7 +311,7 @@ static const CGFloat YMSPhotoFetchScaleResizingRatio = 0.75;
 
     [self.selectedPhotos removeObject:asset];
     if (self.selectedPhotos.count == 0) {
-        self.doneItem.enabled = NO;
+        //self.doneItem.enabled = NO;
     }
 }
 
@@ -629,7 +629,7 @@ static const CGFloat YMSPhotoFetchScaleResizingRatio = 0.75;
             fetchResult = [self.collectionItems firstObject][@"assets"];
             PHAsset *asset = [fetchResult firstObject];
             [self.selectedPhotos addObject:asset];
-            self.doneItem.enabled = YES;
+            //self.doneItem.enabled = YES;
         }
 
         return;
@@ -710,7 +710,7 @@ static const CGFloat YMSPhotoFetchScaleResizingRatio = 0.75;
 
                     PHAsset *asset = [fetchResult firstObject];
                     [self.selectedPhotos addObject:asset];
-                    self.doneItem.enabled = YES;
+                    //self.doneItem.enabled = YES;
                 }
                 [self refreshPhotoSelection];
             }];
