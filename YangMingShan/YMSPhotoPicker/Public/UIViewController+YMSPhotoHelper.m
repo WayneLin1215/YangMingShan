@@ -66,7 +66,7 @@
     [self yms_presentCustomAlbumPhotoView:[[YMSPhotoPickerViewController alloc] init] delegate:delegate];
 }
 
-- (void)yms_presentCustomAlbumPhotoView:(YMSPhotoPickerViewController *)pickerViewController delegate:(id<YMSPhotoPickerViewControllerDelegate>)delegate
+- (void)yms_presentCustomAlbumPhotoView:(YMSPhotoPickerViewController *)pickerViewController useCamera:(BOOL)useCamera delegate:(id<YMSPhotoPickerViewControllerDelegate>)delegate
 {
     PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
     
@@ -74,7 +74,8 @@
     
     if (status == PHAuthorizationStatusAuthorized) {
         pickerViewController.delegate = delegate;
-        [self presentViewController:navigationController animated:YES completion:nil];
+        pickerViewController.useCamera = useCamera;
+        [self presentViewController:navigationController animated:useCamera ? NO : YES completion:nil];
     }
     else if (status == PHAuthorizationStatusDenied
              || status == PHAuthorizationStatusRestricted) {
