@@ -63,7 +63,7 @@
 
 - (void)yms_presentAlbumPhotoViewWithDelegate:(id<YMSPhotoPickerViewControllerDelegate>)delegate
 {
-    [self yms_presentCustomAlbumPhotoView:[[YMSPhotoPickerViewController alloc] init] delegate:delegate];
+    [self yms_presentCustomAlbumPhotoView:[[YMSPhotoPickerViewController alloc] init] useCamera: NO delegate:delegate];
 }
 
 - (void)yms_presentCustomAlbumPhotoView:(YMSPhotoPickerViewController *)pickerViewController useCamera:(BOOL)useCamera delegate:(id<YMSPhotoPickerViewControllerDelegate>)delegate
