@@ -34,9 +34,8 @@
  * @brief Prsent customized YMSPhotoPickerViewController with delegate. See YMSPhotoPickerViewController.h for more details. Implement YMSPhotoPickerViewControllerDelegate to get callbacks from YMSPhotoPickerViewController.
  *
  * @param pickerViewController The customized YMSPhotoPickerViewController.
- * @param useCamera The direct open camera
  * @param delegate The YMSPhotoPickerViewController delegate.
  */
-- (void)yms_presentCustomAlbumPhotoView:(YMSPhotoPickerViewController *)pickerViewController useCamera:(BOOL)useCamera delegate:(id<YMSPhotoPickerViewControllerDelegate>)delegate;
+- (void)yms_presentCustomAlbumPhotoView:(YMSPhotoPickerViewController *)pickerViewController delegate:(id<YMSPhotoPickerViewControllerDelegate>)delegate;
 
 @end
