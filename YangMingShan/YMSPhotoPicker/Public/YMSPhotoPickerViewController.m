@@ -110,19 +110,12 @@ static const CGFloat YMSPhotoFetchScaleResizingRatio = 0.75;
 {
     [super viewWillAppear:animated];
     [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
-    if (self.useCamera) {
-        [self yms_presentCameraCaptureViewWithDelegate:self];
-    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return self.theme.statusBarStyle;
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator
