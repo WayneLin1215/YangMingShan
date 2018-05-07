@@ -63,10 +63,10 @@
 
 - (void)yms_presentAlbumPhotoViewWithDelegate:(id<YMSPhotoPickerViewControllerDelegate>)delegate
 {
-    [self yms_presentCustomAlbumPhotoView:[[YMSPhotoPickerViewController alloc] init] delegate:delegate];
+    [self yms_presentCustomAlbumPhotoView:[[YMSPhotoPickerViewController alloc] init] delegate:delegate animation:YES];
 }
 
-- (void)yms_presentCustomAlbumPhotoView:(YMSPhotoPickerViewController *)pickerViewController delegate:(id<YMSPhotoPickerViewControllerDelegate>)delegate
+- (void)yms_presentCustomAlbumPhotoView:(YMSPhotoPickerViewController *)pickerViewController delegate:(id<YMSPhotoPickerViewControllerDelegate>)delegate animation:(BOOL)animation
 {
     PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
     
@@ -74,7 +74,7 @@
     
     if (status == PHAuthorizationStatusAuthorized) {
         pickerViewController.delegate = delegate;
-        [self presentViewController:navigationController animated:YES completion:nil];
+        [self presentViewController:navigationController animated:animation completion:nil];
     }
     else if (status == PHAuthorizationStatusDenied
              || status == PHAuthorizationStatusRestricted) {
@@ -87,7 +87,7 @@
             dispatch_async(dispatch_get_main_queue(), ^() {
                 if (status == PHAuthorizationStatusAuthorized) {
                     pickerViewController.delegate = delegate;
-                    [self presentViewController:navigationController animated:YES completion:nil];
+                    [self presentViewController:navigationController animated:animation completion:nil];
                 }
                 else {
                     // Access has been denied

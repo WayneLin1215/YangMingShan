@@ -36,6 +36,6 @@
  * @param pickerViewController The customized YMSPhotoPickerViewController.
  * @param delegate The YMSPhotoPickerViewController delegate.
  */
-- (void)yms_presentCustomAlbumPhotoView:(YMSPhotoPickerViewController *)pickerViewController delegate:(id<YMSPhotoPickerViewControllerDelegate>)delegate;
+- (void)yms_presentCustomAlbumPhotoView:(YMSPhotoPickerViewController *)pickerViewController delegate:(id<YMSPhotoPickerViewControllerDelegate>)delegate animation:(BOOL)animation;
 
 @end
