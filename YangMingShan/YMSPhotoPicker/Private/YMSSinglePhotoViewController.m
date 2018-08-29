@@ -17,6 +17,7 @@ typedef NS_ENUM(NSUInteger, PresentationStyle) {
 
 @interface YMSSinglePhotoViewController ()
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *navBottomConstraint;
 @property (nonatomic, copy) void (^dismissalHandler)(BOOL);
 @property (nonatomic, strong) PHAsset *currentAsset;
 @property (nonatomic, weak) PHImageManager *imageManager;
@@ -73,6 +74,11 @@ typedef NS_ENUM(NSUInteger, PresentationStyle) {
     [self.navigationController.barHideOnTapGestureRecognizer addTarget:self action:@selector(switchPresentationStyle:)];
     
     self.presentationStyle = PresentationStyleDefault;
+    
+    if (@available(iOS 11.0, *)) {
+    }else {
+        self.navBottomConstraint.constant = -65;
+    }
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle

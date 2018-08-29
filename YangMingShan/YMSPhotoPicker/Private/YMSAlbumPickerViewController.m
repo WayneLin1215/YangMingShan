@@ -17,6 +17,7 @@
 
 @interface YMSAlbumPickerViewController ()<UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *navBottomConstraint;
 @property (nonatomic, copy) void (^dismissalHandler)(NSDictionary *);
 @property (nonatomic, strong) NSDictionary *selectedCollectionItem;
 @property (nonatomic, strong) NSArray *collectionItems;
@@ -69,6 +70,11 @@
     
     [self.albumListTableView registerNib:cellNib forCellReuseIdentifier:[YMSAlbumCell yms_cellIdentifier]];
     self.footerViewHeight = CGRectGetHeight(self.view.bounds) * 2;
+    
+    if (@available(iOS 11.0, *)) {
+    }else {
+        self.navBottomConstraint.constant = -65;
+    }
 }
 
 - (void)viewDidLayoutSubviews
@@ -93,6 +99,10 @@
         self.headerView.backgroundColor = [UIColor whiteColor];
         self.albumListTableView.tableHeaderView = self.headerView;
     }
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return self.theme.statusBarStyle;
 }
 
 #pragma mark - IBActions

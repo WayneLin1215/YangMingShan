@@ -27,6 +27,7 @@ static const CGFloat YMSPhotoFetchScaleResizingRatio = 0.75;
 
 @property (nonatomic, weak) IBOutlet UIView *navigationBarBackgroundView;
 @property (nonatomic, weak) IBOutlet UICollectionView *photoCollectionView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *navBottomConstraint;
 @property (nonatomic, strong) PHImageManager *imageManager;
 @property (nonatomic, weak) AVCaptureSession *session;
 @property (nonatomic, strong) NSArray *collectionItems;
@@ -104,6 +105,11 @@ static const CGFloat YMSPhotoFetchScaleResizingRatio = 0.75;
     [self updateViewWithCollectionItem:[self.collectionItems firstObject]];
 
     self.cellPortraitSize = self.cellLandscapeSize = CGSizeZero;
+    
+    if (@available(iOS 11.0, *)) {
+    }else {
+        self.navBottomConstraint.constant = -65;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
