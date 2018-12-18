@@ -21,10 +21,24 @@
         
         AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
         if(status == AVAuthorizationStatusAuthorized) {
-            UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-            imagePickerController.delegate = delegate;
-            imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-            [self presentViewController:imagePickerController animated:YES completion:nil];
+            [self checkAlbumAuthorizationStatus:^(bool albumStatus) {
+                if (albumStatus) {
+                    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+                    imagePickerController.delegate = delegate;
+                    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    [self presentViewController:imagePickerController animated:YES completion:nil];
+                } else {
+                    if ([delegate isKindOfClass:[YMSPhotoPickerViewController class]]) {
+                        YMSPhotoPickerViewController *pickerViewController = (YMSPhotoPickerViewController *)delegate;
+                        if ([pickerViewController.delegate respondsToSelector:@selector(photoPickerViewControllerDidReceiveCameraAccessDenied:)]) {
+                            [pickerViewController.delegate photoPickerViewControllerDidReceivePhotoAlbumAccessDenied:pickerViewController];
+                        }
+                    } else if ([delegate respondsToSelector:@selector(photoPickerViewControllerDidReceiveCameraAccessDenied:)]) {
+                        id pickerViewController = (id<YMSPhotoPickerViewControllerDelegate>) delegate;
+                        [(id<YMSPhotoPickerViewControllerDelegate>) pickerViewController photoPickerViewControllerDidReceivePhotoAlbumAccessDenied:pickerViewController];
+                    }
+                }
+            }];
         }
         else if(status == AVAuthorizationStatusDenied
                 || status == AVAuthorizationStatusRestricted) {
@@ -44,12 +58,26 @@
             [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
                 dispatch_async(dispatch_get_main_queue(), ^() {
                     if(granted){
-                        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-                        imagePickerController.delegate = delegate;
-                        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-                        [self presentViewController:imagePickerController animated:YES completion:nil];
-                    }
-                    else {
+                        [self checkAlbumAuthorizationStatus:^(bool albumStatus) {
+                            if (albumStatus) {
+                                UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+                                imagePickerController.delegate = delegate;
+                                imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                [self presentViewController:imagePickerController animated:YES completion:nil];
+                            } else {
+                                if ([delegate isKindOfClass:[YMSPhotoPickerViewController class]]) {
+                                    YMSPhotoPickerViewController *pickerViewController = (YMSPhotoPickerViewController *)delegate;
+                                    if ([pickerViewController.delegate respondsToSelector:@selector(photoPickerViewControllerDidReceiveCameraAccessDenied:)]) {
+                                        [pickerViewController.delegate photoPickerViewControllerDidReceivePhotoAlbumAccessDenied:pickerViewController];
+                                    }
+                                    
+                                } else if ([delegate respondsToSelector:@selector(photoPickerViewControllerDidReceiveCameraAccessDenied:)]) {
+                                    id pickerViewController = (id<YMSPhotoPickerViewControllerDelegate>) delegate;
+                                    [(id<YMSPhotoPickerViewControllerDelegate>) pickerViewController photoPickerViewControllerDidReceivePhotoAlbumAccessDenied:pickerViewController];
+                                }
+                            }
+                        }];
+                    } else {
                         if ([delegate isKindOfClass:[YMSPhotoPickerViewController class]]) {
                             YMSPhotoPickerViewController *pickerViewController = (YMSPhotoPickerViewController *)delegate;
                             if ([pickerViewController.delegate respondsToSelector:@selector(photoPickerViewControllerDidReceiveCameraAccessDenied:)]) {
@@ -68,6 +96,34 @@
     }
     else {
         // Camera is not support in this device, the reason we don't need to handle it because the only iOS8+ environment which does not support camera is iPhone simulator.
+    }
+}
+
+- (void)checkAlbumAuthorizationStatus:(void (^)(bool))auth {
+    PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+    
+    if (status == PHAuthorizationStatusAuthorized) {
+        auth(true);
+    }
+    else if (status == PHAuthorizationStatusDenied
+             || status == PHAuthorizationStatusRestricted) {
+        auth(false);
+    }
+    else if (status == PHAuthorizationStatusNotDetermined) {
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            dispatch_async(dispatch_get_main_queue(), ^() {
+                if (status == PHAuthorizationStatusAuthorized) {
+                    auth(true);
+                }
+                else {
+                    // Access has been denied
+                    auth(false);
+                }
+            });
+        }];
+    }
+    else {
+        auth(false);
     }
 }
 
