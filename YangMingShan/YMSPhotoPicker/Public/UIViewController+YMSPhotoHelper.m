@@ -33,6 +33,11 @@
                 if ([pickerViewController.delegate respondsToSelector:@selector(photoPickerViewControllerDidReceiveCameraAccessDenied:)]) {
                     [pickerViewController.delegate photoPickerViewControllerDidReceiveCameraAccessDenied:pickerViewController];
                 }
+                return;
+            }
+            if ([delegate respondsToSelector:@selector(photoPickerViewControllerDidReceiveCameraAccessDenied:)]) {
+                id pickerViewController = (id<YMSPhotoPickerViewControllerDelegate>) delegate;
+                [(id<YMSPhotoPickerViewControllerDelegate>) pickerViewController photoPickerViewControllerDidReceiveCameraAccessDenied:pickerViewController];
             }
         }
         else if(status == AVAuthorizationStatusNotDetermined) {
@@ -50,6 +55,11 @@
                             if ([pickerViewController.delegate respondsToSelector:@selector(photoPickerViewControllerDidReceiveCameraAccessDenied:)]) {
                                 [pickerViewController.delegate photoPickerViewControllerDidReceiveCameraAccessDenied:pickerViewController];
                             }
+                            return;
+                        }
+                        if ([delegate respondsToSelector:@selector(photoPickerViewControllerDidReceiveCameraAccessDenied:)]) {
+                            id pickerViewController = (id<YMSPhotoPickerViewControllerDelegate>) delegate;
+                            [(id<YMSPhotoPickerViewControllerDelegate>) pickerViewController photoPickerViewControllerDidReceiveCameraAccessDenied:pickerViewController];
                         }
                     }
                 });

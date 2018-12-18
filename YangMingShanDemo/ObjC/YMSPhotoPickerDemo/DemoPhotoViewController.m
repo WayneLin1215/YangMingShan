@@ -58,8 +58,7 @@ static NSString * const CellIdentifier = @"imageCellIdentifier";
         pickerViewController.theme.cameraVeilColor = customColor;
         pickerViewController.theme.cameraIconColor = [UIColor whiteColor];
         pickerViewController.theme.statusBarStyle = UIStatusBarStyleDefault;
-
-        [self yms_presentCustomAlbumPhotoView:pickerViewController delegate:self];
+        [self yms_presentCustomAlbumPhotoView:pickerViewController delegate:self animation:true];
     }
     else {
         [[YMSPhotoPickerTheme sharedInstance] reset];
