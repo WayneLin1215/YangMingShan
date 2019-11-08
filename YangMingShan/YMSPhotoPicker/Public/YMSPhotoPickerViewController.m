@@ -473,7 +473,8 @@ static const CGFloat YMSPhotoFetchScaleResizingRatio = 0.75;
     albumButton.titleLabel.font = self.theme.titleLabelFont;
     [albumButton addTarget:self action:@selector(presentAlbumPickerView:) forControlEvents:UIControlEventTouchUpInside];
     [albumButton setTitle:photoCollection.localizedTitle forState:UIControlStateNormal];
-    UIImage *arrowDownImage = [UIImage imageNamed:@"YMSIconSpinnerDropdwon" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
+    
+    UIImage *arrowDownImage = [UIImage imageNamed:@"YMSIconSpinnerDropdwon" inBundle:[NSBundle bundleWithIdentifier:@"org.cocoapods.YangMingShan"] compatibleWithTraitCollection:nil];
     arrowDownImage = [arrowDownImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [albumButton setImage:arrowDownImage forState:UIControlStateNormal];
     [albumButton sizeToFit];
