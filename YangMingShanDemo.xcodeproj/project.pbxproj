@@ -13,6 +13,7 @@
 		3EFA1F711E927DAE00FD8984 /* YangMingShan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFA1F6A1E927DAE00FD8984 /* YangMingShan.framework */; };
 		3EFA1F721E927DAE00FD8984 /* YangMingShan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFA1F6A1E927DAE00FD8984 /* YangMingShan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3EFA1F941E927E7E00FD8984 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFA1F931E927E7E00FD8984 /* Photos.framework */; };
+		3EFA1F951E927E9700FD8984 /* YMSPhotoPickerAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51F2EEE81CEC4D5F006DFC4B /* YMSPhotoPickerAssets.xcassets */; };
 		3EFA1FC01E92824600FD8984 /* UIViewController+YMSPhotoHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5130733A1D1B8DC000C98705 /* UIViewController+YMSPhotoHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3EFA1FC11E92824600FD8984 /* YMSPhotoPickerTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 5130733C1D1B8DC000C98705 /* YMSPhotoPickerTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3EFA1FC21E92827700FD8984 /* YMSPhotoPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5130733E1D1B8DC000C98705 /* YMSPhotoPickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -59,9 +60,6 @@
 		5130731A1D13D5A400C98705 /* YangMingShanDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 513073171D13D59D00C98705 /* YangMingShanDemoUITests.m */; };
 		51FF32391D129D020029197B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51FF32291D129D020029197B /* Assets.xcassets */; };
 		897897DD1F7F72920054FB81 /* YMSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B3BF9F1F7F38DB00DD2C21 /* YMSNavigationController.m */; };
-		B0F333FC2375712D00E5B203 /* iconCamera.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B0F333FB2375712D00E5B203 /* iconCamera.pdf */; };
-		B0F333FE2375713500E5B203 /* iconCancel.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B0F333FD2375713500E5B203 /* iconCancel.pdf */; };
-		B0F334002375713B00E5B203 /* iconSpinnerDropdwon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = B0F333FF2375713B00E5B203 /* iconSpinnerDropdwon.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,13 +176,11 @@
 		5171AD001CE9A49C00B72748 /* YangMingShanDemo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YangMingShanDemo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5171AD0B1CE9A49C00B72748 /* YangMingShanDemo.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YangMingShanDemo.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		519140CD1D055615002B4C5B /* YangMingShanDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YangMingShanDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		51F2EEE81CEC4D5F006DFC4B /* YMSPhotoPickerAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = YMSPhotoPickerAssets.xcassets; sourceTree = "<group>"; };
 		51FF32291D129D020029197B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51FF322B1D129D020029197B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89B3BF9E1F7F38DB00DD2C21 /* YMSNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YMSNavigationController.h; path = Private/YMSNavigationController.h; sourceTree = "<group>"; };
 		89B3BF9F1F7F38DB00DD2C21 /* YMSNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YMSNavigationController.m; path = Private/YMSNavigationController.m; sourceTree = "<group>"; };
-		B0F333FB2375712D00E5B203 /* iconCamera.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = iconCamera.pdf; path = YMSPhotoPickerAssets.xcassets/YMSIconCamera.imageset/iconCamera.pdf; sourceTree = "<group>"; };
-		B0F333FD2375713500E5B203 /* iconCancel.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = iconCancel.pdf; path = YMSPhotoPickerAssets.xcassets/YMSIconCancel.imageset/iconCancel.pdf; sourceTree = "<group>"; };
-		B0F333FF2375713B00E5B203 /* iconSpinnerDropdwon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = iconSpinnerDropdwon.pdf; path = YMSPhotoPickerAssets.xcassets/YMSIconSpinnerDropdwon.imageset/iconSpinnerDropdwon.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,9 +341,7 @@
 		5171AD1E1CE9B2F100B72748 /* YMSPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				B0F333FB2375712D00E5B203 /* iconCamera.pdf */,
-				B0F333FD2375713500E5B203 /* iconCancel.pdf */,
-				B0F333FF2375713B00E5B203 /* iconSpinnerDropdwon.pdf */,
+				51F2EEE81CEC4D5F006DFC4B /* YMSPhotoPickerAssets.xcassets */,
 				51FF31EB1D129B4C0029197B /* Categories */,
 				5130733C1D1B8DC000C98705 /* YMSPhotoPickerTheme.h */,
 				5130733D1D1B8DC000C98705 /* YMSPhotoPickerTheme.m */,
@@ -556,7 +550,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -579,15 +572,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0F333FC2375712D00E5B203 /* iconCamera.pdf in Resources */,
-				B0F333FE2375713500E5B203 /* iconCancel.pdf in Resources */,
-				B0F334002375713B00E5B203 /* iconSpinnerDropdwon.pdf in Resources */,
 				3EFA1FDE1E92845300FD8984 /* YMSPhotoPickerViewController.xib in Resources */,
 				3EFA1FDF1E92845300FD8984 /* YMSAlbumCell.xib in Resources */,
 				3EFA1FE01E92845300FD8984 /* YMSAlbumPickerViewController.xib in Resources */,
 				3EFA1FE11E92845300FD8984 /* YMSCameraCell.xib in Resources */,
 				3EFA1FE21E92845300FD8984 /* YMSPhotoCell.xib in Resources */,
 				3EFA1FE31E92845300FD8984 /* YMSSinglePhotoViewController.xib in Resources */,
+				3EFA1F951E927E9700FD8984 /* YMSPhotoPickerAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
