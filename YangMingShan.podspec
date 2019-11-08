@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'YangMingShan'
   s.author       = { "Team" => "yang-ming-shan@oath.com" }
-  s.version      = '2.0.2'
+  s.version      = '2.0.3'
   s.summary      = 'The collection of useful UI components that inspired by Yahoo apps.'
   s.homepage     = 'https://github.com/yahoo/YangMingShan'
   s.license      = "Yahoo! Inc. BSD license"
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'YMSPhotoPicker' do |ss|
     ss.source_files = 'YangMingShan/YMSPhotoPicker/**/*.{h,m}'
-    ss.resources    = ['YangMingShan/YMSPhotoPicker/**/*.xib', 'YangMingShan/YMSPhotoPicker/YMSPhotoPickerAssets.xcassets']
+    ss.resource    = 'YangMingShan/YMSPhotoPicker/**/*.xib'
     ss.frameworks   = ['Photos', 'AVFoundation']
   end
 
