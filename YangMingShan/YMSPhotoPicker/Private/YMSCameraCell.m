@@ -26,7 +26,10 @@
     [super awakeFromNib];
     
     self.captureVeilView.backgroundColor = [YMSPhotoPickerTheme sharedInstance].cameraVeilColor;
-    self.cameraImageView.image = [self.cameraImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    NSString *bundlePath = [[NSBundle bundleForClass:self.class].resourcePath stringByAppendingPathComponent:@"YMSResource.bunbdle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+    UIImage *cameraImage = [UIImage imageNamed:@"YMSIconCancel" inBundle:bundle compatibleWithTraitCollection:nil];
+    self.cameraImageView.image = [cameraImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.cameraImageView.tintColor = [YMSPhotoPickerTheme sharedInstance].cameraIconColor;
 }
 
